@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak - For My Janu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-bg: #0f2027;
+            --eid-green: #00bf72;
+            --gold: #ffd700;
+            --romantic-pink: #ff007f;
+            --text-white: #ffffff;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            font-family: 'Hind Siliguri', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .card-container {
+            z-index: 10;
+            width: 90%;
+            max-width: 420px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: none;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: var(--text-white);
+        }
+
+        .active { display: block; }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        h2 { font-size: 28px; margin-bottom: 15px; color: var(--gold); text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+        p { font-size: 18px; line-height: 1.6; margin-bottom: 25px; }
+
+        .btn {
+            background: linear-gradient(45deg, var(--eid-green), #008f5d);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 191, 114, 0.4);
+        }
+
+        /* স্পেশাল হাইলাইটেড ডেভেলপার বাটন */
+        .dev-btn {
+            background: var(--gold);
+            color: #0f2027;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0 0 20px var(--gold);
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .dev-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--gold);
+        }
+
+        .icon-box { font-size: 50px; margin-bottom: 20px; filter: drop-shadow(0 0 10px var(--gold)); }
+        .progress-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.3); border-radius: 50%; }
+        .dot.active-dot { background: var(--gold); box-shadow: 0 0 8px var(--gold); }
+    </style>
+</head>
+<body>
+
+<div class="card-container">
+    <div class="card active" id="card1">
+        <div class="icon-box">🌙</div>
+        <h2>ঈদ মোবারক জানু (মুরগি)</h2>
+        <p>সিস্টেম ডিটেক্ট করেছে যে তোমাকে আজ অনেক বেশি কিউট লাগছে__😌👀</p>
+        <button class="btn" onclick="nextCard(2)">NEXT</button>
+        <div class="progress-dots"><div class="dot active-dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    </div>
+
+    <div class="card" id="card2">
+        <div class="icon-box">🧪</div>
+        <h2>SCIENCE SAYS</h2>
+        <p>তোর হাসির ফ্রিকোয়েন্সি আজ ডোপামিন লেভেলকে <span style="color: var(--romantic-pink);">MAX</span> করে দিয়েছে!</p>
+        <p>ঈদের চাঁদও তোমার পাশে আজ ম্লান লাগছে।</p>
+        <button class="btn" onclick="nextCard(3)">পরের ধাপে যাও</button>
+        <div class="progress-dots"><div class="dot"></div><div class="dot active-dot"></div><div class="dot"></div><div class="dot"></div></div>
+    </div>
+
+    <div class="card" id="card3">
+        <div class="icon-box">💸</div>
+        <h2>সালামি আপডেট</h2>
+        <p style="color: var(--romantic-pink); font-weight: bold;">[TREAT PENDING]</p>
+        <p>তোমাকে সালামি দিবো কী! তোমাকে তো আমার পুরো মনটাই দিয়ে দিছি__🙈💫</p>
+        <button class="btn" onclick="nextCard(4)">NEXT</button>
+        <div class="progress-dots"><div class="dot"></div><div class="dot"></div><div class="dot active-dot"></div><div class="dot"></div></div>
+    </div>
+
+    <div class="card" id="card4">
+        <div class="icon-box">✨🎉✨</div>
+        <h2 style="color: var(--romantic-pink);">ঈদ মোবারক, তিশা!</h2>
+        <h2 style="color: var(--romantic-pink); font-size: 20px;">MY JANU</h2>
+        <p>তোমার জীবনটা কাটুক রঙিন কনফেটির মতো আনন্দময় আর রেগেটন মিউজিকের তালে!</p>
+        <p>সারা জীবন এভাবেই পাশে থেকো। ❤️</p>
+        
+        <button class="btn" onclick="location.reload()">আবার দেখো</button>
+        
+        <br>
+        <a href="https://www.facebook.com/Junaid.Khan.097" target="_blank" class="dev-btn">
+            DEVELOPER: JUNAID
+        </a>
+
+        <div class="progress-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active-dot"></div></div>
+    </div>
+</div>
+
+<audio id="eidMusic">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function nextCard(cardNumber) {
+        document.querySelectorAll('.card').forEach(card => card.classList.remove('active'));
+        document.getElementById('card' + cardNumber).classList.add('active');
+        if(cardNumber === 4) { playMusic(); startCelebration(); }
+    }
+
+    function playMusic() {
+        const music = document.getElementById('eidMusic');
+        music.play().catch(e => console.log("Interfere required for audio."));
+    }
+
+    function startCelebration() {
+        var duration = 5 * 1000;
+        var animationEnd = Date.now() + duration;
+        var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+        function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+        var interval = setInterval(function() {
+            var timeLeft = animationEnd - Date.now();
+            if (timeLeft <= 0) return clearInterval(interval);
+            var particleCount = 50 * (timeLeft / duration);
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+        }, 250);
+    }
+</script>
+
+</body>
+</html>
