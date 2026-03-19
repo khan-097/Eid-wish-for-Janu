@@ -70,7 +70,6 @@
             box-shadow: 0 5px 15px rgba(0, 191, 114, 0.4);
         }
 
-        /* স্পেশাল হাইলাইটেড ডেভেলপার বাটন */
         .dev-btn {
             background: var(--gold);
             color: #0f2027;
@@ -146,20 +145,28 @@
     </div>
 </div>
 
-<audio id="eidMusic">
+<audio id="eidMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <script>
     function nextCard(cardNumber) {
+        // প্রথম বাটনে ক্লিক করলেই মিউজিক শুরু হবে
+        if(cardNumber === 2) {
+            playMusic();
+        }
+
         document.querySelectorAll('.card').forEach(card => card.classList.remove('active'));
         document.getElementById('card' + cardNumber).classList.add('active');
-        if(cardNumber === 4) { playMusic(); startCelebration(); }
+        
+        if(cardNumber === 4) { 
+            startCelebration(); 
+        }
     }
 
     function playMusic() {
         const music = document.getElementById('eidMusic');
-        music.play().catch(e => console.log("Interfere required for audio."));
+        music.play().catch(e => console.log("User interaction required."));
     }
 
     function startCelebration() {
