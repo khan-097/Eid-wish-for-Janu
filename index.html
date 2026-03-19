@@ -100,6 +100,8 @@
 </head>
 <body>
 
+<div class="stars"></div>
+
 <div class="card-container">
     <div class="card active" id="card1">
         <div class="icon-box">🌙</div>
@@ -134,7 +136,7 @@
         <p>তোমার জীবনটা কাটুক রঙিন কনফেটির মতো আনন্দময় আর রেগেটন মিউজিকের তালে!</p>
         <p>সারা জীবন এভাবেই পাশে থেকো। ❤️</p>
         
-        <button class="btn" onclick="location.reload()">আবার দেখো</button>
+        <button class="btn" onclick="restartStory()">আবার দেখো</button>
         
         <br>
         <a href="https://www.facebook.com/Junaid.Khan.097" target="_blank" class="dev-btn">
@@ -151,7 +153,6 @@
 
 <script>
     function nextCard(cardNumber) {
-        // প্রথম বাটনে ক্লিক করলেই মিউজিক শুরু হবে
         if(cardNumber === 2) {
             playMusic();
         }
@@ -162,6 +163,13 @@
         if(cardNumber === 4) { 
             startCelebration(); 
         }
+    }
+
+    // নতুন ফাংশন: পেজ রিফ্রেশ না করে কার্ড রিসেট করবে
+    function restartStory() {
+        document.querySelectorAll('.card').forEach(card => card.classList.remove('active'));
+        document.getElementById('card1').classList.add('active');
+        // গান অফ করা হবে না, গানটি লুপে চলতেই থাকবে
     }
 
     function playMusic() {
